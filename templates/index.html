@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patient Registration</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="page">
+
+    <header class="navbar navbar-light">
+        <div class="container-xl">
+            <a href="/" class="navbar-brand text-primary">
+                AI Health Prediction System
+            </a>
+            <a href="/" class="btn btn-outline-primary btn-sm">
+                Dashboard
+            </a>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <div class="page-header">
+            <div class="container-xl">
+                <div class="page-pretitle">Patient Management</div>
+                <h2 class="page-title">Patient Registration</h2>
+            </div>
+        </div>
+
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+
+                        <form action="/add_patient" method="POST" class="card">
+
+                            <div class="card-header">
+                                <h3 class="card-title">Enter Patient Details</h3>
+                            </div>
+
+                            <div class="card-body">
+
+                                {% if error %}
+                                <div class="alert alert-danger">{{ error }}</div>
+                                {% endif %}
+
+                                <div class="mb-3">
+                                    <label class="form-label required">Full Name</label>
+                                    <input type="text" name="full_name"
+                                           class="form-control"
+                                           placeholder="Enter full name" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label required">Date of Birth</label>
+                                    <input type="text" name="dob"
+                                           class="form-control"
+                                           placeholder="DD/MM/YYYY" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label required">Email Address</label>
+                                    <input type="email" name="email"
+                                           class="form-control"
+                                           placeholder="Enter email address" required>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label required">Glucose (mg/dL)</label>
+                                        <input type="number" name="glucose"
+                                               class="form-control"
+                                               step="any" min="0" required>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label required">Haemoglobin (g/dL)</label>
+                                        <input type="number" name="haemoglobin"
+                                               class="form-control"
+                                               step="any" min="0" required>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label required">Cholesterol (mg/dL)</label>
+                                        <input type="number" name="cholesterol"
+                                               class="form-control"
+                                               step="any" min="0" required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="card-footer text-end">
+                                <a href="/" class="btn btn-outline-secondary me-2">
+                                    Cancel
+                                </a>
+
+                                <button type="submit" class="btn btn-success">
+                                    Add Patient
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
